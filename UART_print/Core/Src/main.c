@@ -83,6 +83,8 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	unsigned char Tx_Buffer[5] = {'H', 'e', 'l', 'l', 'o'};
+	unsigned char value_int = 200;
+	float value_float = 12.3456;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -114,6 +116,7 @@ int main(void)
   {
 	  printf("Start Send data : ");
 	  HAL_UART_Transmit(&huart1, Tx_Buffer, 5, 2);
+	  printf(" %d, %f     ", value_int, value_float);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
