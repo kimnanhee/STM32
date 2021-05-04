@@ -26,7 +26,7 @@ class draw_graph(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.graphicsView.setBackground('#FFFFFF') # 배경 색깔
 		self.graphicsView.showGrid(x=True, y=True) # 그리드
 		self.graphicsView.setRange(xRange=[2, 20])
-		self.graphicsView.setRange(yRange=[2, 100])
+		self.graphicsView.setRange(yRange=[500, 4500])
 	
 	def uiUpdater(self):
 		self.graphicsView.clear() # 그래프 지우기
@@ -36,11 +36,14 @@ class draw_graph(QtWidgets.QMainWindow, Ui_MainWindow):
 def read_thread(ui):
 	global cds_list
 	cnt = 0
+	ser.flush()
 	while True:
-		data = ser.readline().decode('utf-8')  
+		data = ser.readline().decode('utf-8')
+		
 		if data:
 			print(data)
-			cds = int(data[1:5]) # 온도 슬라이싱
+			cds = data.split(":")
+			cds = int(cds[1])
 
 			ui.label_value.setText(str(cds)) # 라벨에 온도 표시
 			cds_list.append(cds) # 리스트에 붙이기

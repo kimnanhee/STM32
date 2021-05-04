@@ -61,8 +61,8 @@ all: main-build
 main-build: ADC_cds_graph.elf secondary-outputs
 
 # Tool invocations
-ADC_cds_graph.elf: $(OBJS) $(USER_OBJS) C:\Users\DSM\Desktop\2021\YoungMoon\STM\ADC_cds_graph\STM32F103VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ADC_cds_graph.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\DSM\Desktop\2021\YoungMoon\STM\ADC_cds_graph\STM32F103VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_cds_graph.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ADC_cds_graph.elf: $(OBJS) $(USER_OBJS) D:\Github\STM32\ADC_cds_graph\STM32F103VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ADC_cds_graph.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Github\STM32\ADC_cds_graph\STM32F103VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_cds_graph.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

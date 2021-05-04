@@ -111,7 +111,6 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   setvbuf(stdout, NULL, _IONBF, 0);
-  printf("nanhee");
 
   uint32_t ADC_Value_32[1]={0};
   uint16_t ADC_Value_16;
@@ -129,7 +128,7 @@ int main(void)
 	  HAL_Delay(1000);
 	  ADC_Value_16=(uint16_t)ADC_Value_32[0];
 	  ADC_Value_16 &= 0xFFF;
-	  printf("\n ADC Value=%d", ADC_Value_16);
+	  printf("cds:%d\n", ADC_Value_16);
   }
   /* USER CODE END 3 */
 }
