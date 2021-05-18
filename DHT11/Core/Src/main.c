@@ -22,7 +22,8 @@
 #include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
-#include "DHT.h"
+#include "stm32f1xx_hal.h"
+#include "dht11.h"
 #include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
@@ -59,9 +60,6 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-DHT_DataTypedef DHT11_Data;
-float Temperature, Humidity;
-
 /* USER CODE END 0 */
 
 /**
@@ -88,6 +86,7 @@ PUTCHAR_PROTOTYPE
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	uint8_t dht11Data[5] = {0};
 
   /* USER CODE END 1 */
 
@@ -113,6 +112,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  DHT11_Init();
   setvbuf(stdout, NULL, _IONBF, 0);
   printf("start program  ");
   /* USER CODE END 2 */
@@ -124,12 +124,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  printf("DHT11 read start  ");
-	  DHT_GetData(&DHT11_Data);
-	  Temperature = DHT11_Data.Temperature;
-	  Humidity = DHT11_Data.Humidity;
-	  printf("DHT11 read end  ");
-	  printf("temp:%f  humi:%f", Temperature, Humidity);
+	  if (DHT11_OK == DHT11_Read(dht11Data))
+	  {
+	    printf("Humi %d Temp %d\r\n", dht11Data[0], dht11Data[2]);
+	  }
+	  else /* wrong checksum or timeout */
+	  {
+	    printf("DHT11_ERROR\r\n");
+	  }
 	  HAL_Delay(3000);
   }
   /* USER CODE END 3 */

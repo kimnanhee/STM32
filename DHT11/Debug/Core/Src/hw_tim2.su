@@ -1,0 +1,5 @@
+hw_tim2.c:17:6:TIM2_Init	4	static
+hw_tim2.c:27:6:TIM2_Deinit	4	static
+hw_tim2.c:32:6:TIM2_Enable	4	static
+hw_tim2.c:37:6:TIM2_Disable	4	static
+hw_tim2.c:42:6:TIM2_DelayUs	16	static
