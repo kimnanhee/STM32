@@ -1,3 +1,0 @@
-dht11.c:17:6:DHT11_Init	8	static
-dht11.c:34:6:DHT11_Denit	8	static
-dht11.c:40:20:DHT11_Read	32	static
