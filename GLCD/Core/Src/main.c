@@ -20,6 +20,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
+#include "fsmc.h"
+#include "lcd.h"
+#include "lcd32.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -85,8 +89,27 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_FSMC_Init();
   /* USER CODE BEGIN 2 */
 
+  bsp_lcd32_init();
+  lcd32_clear_screen(0xFFFF);
+
+  int x, y;
+  for(x=0; x<240; x++)
+  {
+	  for(y=0; y<320; y++)
+	  {
+		  if(x%40 < 20)
+		  {
+			  if(y%40 < 20) lcd32_draw_point_color(x, y, 0x0000);
+		  }
+		  else
+		  {
+			  if(y%40 >= 20) lcd32_draw_point_color(x, y, 0x0000);
+		  }
+	  }
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
