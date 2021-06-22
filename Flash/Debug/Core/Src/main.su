@@ -1,0 +1,9 @@
+main.c:44:6:HAL_UART_RxCpltCallback	16	static
+main.c:89:6:Flash_Data_Write	24	static
+main.c:111:6:Flash_Data_Read	16	static
+main.c:155:5:write	24	static
+main.c:165:1:__io_putchar	16	static
+main.c:178:5:main	24	static
+main.c:267:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:275:6:SystemClock_Config	72	static
+main.c:317:6:Error_Handler	4	static,ignoring_inline_asm
