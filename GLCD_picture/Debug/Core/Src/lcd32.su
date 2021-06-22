@@ -1,0 +1,16 @@
+lcd32.c:24:6:bsp_lcd32_init	8	static
+lcd32.c:686:6:lcd32_writeram_prepare	8	static
+lcd32.c:691:6:lcd32_setcursor	16	static
+lcd32.c:714:6:lcd32_clear_screen	24	static
+lcd32.c:747:6:lcd32_image	16	static
+lcd32.c:779:6:lcd32_draw_point	16	static
+lcd32.c:786:6:lcd32_draw_point_color	16	static
+lcd32.c:793:6:lcd32_set_window	24	static
+lcd32.c:815:6:lcd32_fill_color	32	static
+lcd32.c:851:6:lcd32_draw_line	64	static
+lcd32.c:887:6:lcd32_draw_rectangle	24	static
+lcd32.c:897:6:lcd32_draw_circle	32	static
+lcd32.c:931:6:lcd32_show_char	32	static
+lcd32.c:1005:6:lcd32_show_num	40	static
+lcd32.c:1029:6:lcd32_show_string	24	static
+lcd32.c:1051:6:lcd32_draw_point_big	16	static
